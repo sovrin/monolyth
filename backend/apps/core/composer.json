@@ -1,0 +1,29 @@
+{
+  "name": "nc/core",
+  "type": "project",
+  "require": {
+    "php": "^8.4",
+    "nc/auth": "*",
+    "nc/utils": "*",
+    "nc/common": "*"
+  },
+  "scripts": {
+    "app": "php -S 0.0.0.0:8000 -t src"
+  },
+  "autoload": {
+    "psr-4": {
+      "Nc\\CoreApp\\": "src/"
+    }
+  },
+  "repositories": [
+    {
+      "type": "path",
+      "url": "../../packages/*",
+      "options": {
+        "symlink": true
+      }
+    }
+  ],
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}

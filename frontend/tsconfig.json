@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "composite": true,
+    "noEmit": false,
+    "paths": {}
+  },
+  "references": [
+    {
+      "path": "./apps/core"
+    },
+    {
+      "path": "./apps/storybook"
+    },
+    {
+      "path": "./packages/checkout/"
+    },
+    {
+      "path": "./packages/login"
+    },
+    {
+      "path": "./packages/common"
+    }
+  ],
+  "include": []
+}

@@ -1,0 +1,30 @@
+{
+  "name": "nc/app-api",
+  "description": "App API",
+  "type": "project",
+  "license": "proprietary",
+  "require": {
+    "php": "^8.4",
+    "nc/auth": "*",
+    "nc/utils": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Nc\\AppApi\\": "src/"
+    }
+  },
+  "repositories": [
+    {
+      "type": "path",
+      "url": "../../packages/*",
+      "options": { "symlink": true }
+    }
+  ],
+  "scripts": {
+    "post-install-cmd": [
+      "@php -r \"echo 'app-api ready'.PHP_EOL;\""
+    ]
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}

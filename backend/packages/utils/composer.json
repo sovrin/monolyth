@@ -1,0 +1,17 @@
+{
+  "name": "nc/utils",
+  "description": "misc utilities",
+  "type": "library",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Nc\\Utils\\": "src/"
+    }
+  },
+  "require": {
+    "php": "^8.4"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^11.0"
+  }
+}

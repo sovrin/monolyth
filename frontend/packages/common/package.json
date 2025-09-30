@@ -1,0 +1,11 @@
+{
+  "name": "@nc/common",
+  "type": "module",
+  "private": true,
+  "exports": {
+    "./log": {
+      "types": "./src/log.ts",
+      "import": "./src/log.ts"
+    }
+  }
+}

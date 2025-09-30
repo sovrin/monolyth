@@ -1,0 +1,24 @@
+{
+  "name": "nc/app2",
+  "type": "project",
+  "require": {
+    "php": "^8.4",
+    "nc/auth": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Nc\\App2\\": "src/"
+    }
+  },
+  "repositories": [
+    {
+      "type": "path",
+      "url": "../../packages/*",
+      "options": {
+        "symlink": true
+      }
+    }
+  ],
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}

@@ -1,0 +1,14 @@
+{
+  "name": "@nc/checkout",
+  "type": "module",
+  "private": true,
+  "exports": {
+    "./checkout": {
+      "types": "./src/checkout.ts",
+      "import": "./src/checkout.ts"
+    }
+  },
+  "dependencies": {
+    "@nc/common": "*"
+  }
+}

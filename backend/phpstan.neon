@@ -1,0 +1,17 @@
+includes:
+#    - apps/app-api/phpstan.neon
+#    - apps/core/phpstan.neon
+
+parameters:
+    level: max
+    paths:
+        - packages
+        - apps
+    tmpDir: temp/phpstan
+    excludePaths:
+        - apps/core/vendor
+        - apps/app2/vendor
+        - apps/app-api/vendor
+        - packages/auth/vendor
+        - packages/utils/vendor
+        - packages/common/vendor
