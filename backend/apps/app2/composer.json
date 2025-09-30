@@ -3,7 +3,10 @@
   "type": "project",
   "require": {
     "php": "^8.4",
-    "nc/auth": "*"
+    "nc/common": "*"
+  },
+  "scripts": {
+    "app2": "php -S 0.0.0.0:8000 -t src"
   },
   "autoload": {
     "psr-4": {

@@ -12,3 +12,8 @@ run-backend-core:
 
 run-frontend-core:
 	@cd frontend/apps/core && npm run app
+
+APP:=
+
+deploy:
+	@cd backend/tools && php deploy.php deploy $(APP)

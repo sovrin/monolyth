@@ -9,6 +9,10 @@ to run an app:
 or
 `make run-frontend-core`
 
+## deployment
+`make deploy APP:=core` // for core application
+this creates an archive in the `backend/temp/deploy` folder
+
 ### notes
 
 backend apps may need to be bundled (similar to frontend) into a single archive.
