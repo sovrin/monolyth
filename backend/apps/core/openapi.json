@@ -1,0 +1,89 @@
+{
+    "openapi": "3.0.0",
+    "servers": [
+        {
+            "url": "http://localhost:8000/"
+        }
+    ],
+    "info": {
+        "title": "API Documentation",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/login_status": {
+            "get": {
+                "summary": "login_status",
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/LoginStatusResponse"
+                    }
+                }
+            }
+        },
+        "/login": {
+            "post": {
+                "summary": "login",
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/LoginStatusResponse"
+                    }
+                },
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/LoginRequest"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "LoggedInContent": {
+                "type": "object",
+                "properties": {
+                    "loggedIn": {
+                        "type": "boolean"
+                    },
+                    "user": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "user"
+                ]
+            },
+            "LoginRequest": {
+                "type": "object",
+                "properties": {
+                    "username": {
+                        "type": "string"
+                    },
+                    "password": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "username",
+                    "password"
+                ]
+            }
+        },
+        "responses": {
+            "LoginStatusResponse": {
+                "description": "Returns login status and (if logged in) basic user info",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/LoggedInContent"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -5,10 +5,12 @@
     "php": "^8.4",
     "nc/auth": "*",
     "nc/utils": "*",
-    "nc/common": "*"
+    "nc/common": "*",
+    "zircote/swagger-php": "^5.5"
   },
   "scripts": {
-    "app": "php -S 0.0.0.0:8000 -t src"
+    "app": "php -S 0.0.0.0:8000 -t www",
+    "spec": "php ./scripts/specGenerator.php"
   },
   "autoload": {
     "psr-4": {
