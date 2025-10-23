@@ -1,41 +1,62 @@
 {
     "openapi": "3.0.0",
-    "servers": [
-        {
-            "url": "http://localhost:8000/"
-        }
-    ],
     "info": {
-        "title": "API Documentation",
+        "title": "ThomannCore API",
+        "description": "API for the Core module",
         "version": "1.0.0"
     },
     "paths": {
-        "/login_status": {
+        "/api/login/status": {
             "get": {
-                "summary": "login_status",
+                "tags": [
+                    "Login"
+                ],
+                "summary": "Returns login status and (if logged in) basic user info",
+                "operationId": "get_api_login_status",
                 "responses": {
                     "200": {
-                        "$ref": "#/components/responses/LoginStatusResponse"
+                        "description": "Login status",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/LoginStatusView"
+                                }
+                            }
+                        }
                     }
                 }
             }
         },
-        "/login": {
+        "/api/login": {
             "post": {
-                "summary": "login",
-                "responses": {
-                    "200": {
-                        "$ref": "#/components/responses/LoginStatusResponse"
-                    }
-                },
+                "tags": [
+                    "Login"
+                ],
+                "summary": "Attempt login",
+                "operationId": "post_api_login",
                 "requestBody": {
                     "required": true,
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/LoginRequest"
+                                "$ref": "#/components/schemas/LoginRequest2"
                             }
                         }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Login status",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/LoginStatusView"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation error"
                     }
                 }
             }
@@ -43,22 +64,11 @@
     },
     "components": {
         "schemas": {
-            "LoggedInContent": {
-                "type": "object",
-                "properties": {
-                    "loggedIn": {
-                        "type": "boolean"
-                    },
-                    "user": {
-                        "type": "string"
-                    }
-                },
-                "required": [
-                    "user"
-                ]
-            },
             "LoginRequest": {
-                "type": "object",
+                "required": [
+                    "username",
+                    "password"
+                ],
                 "properties": {
                     "username": {
                         "type": "string"
@@ -67,23 +77,63 @@
                         "type": "string"
                     }
                 },
+                "type": "object"
+            },
+            "UserView": {
+                "required": [
+                    "username"
+                ],
+                "properties": {
+                    "username": {
+                        "type": "string"
+                    },
+                    "roles": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "default": []
+                    }
+                },
+                "type": "object"
+            },
+            "LoginStatusView": {
+                "properties": {
+                    "loggedIn": {
+                        "type": "boolean",
+                        "default": false
+                    },
+                    "user": {
+                        "nullable": true,
+                        "oneOf": [
+                            {
+                                "$ref": "#/components/schemas/UserView"
+                            }
+                        ]
+                    }
+                },
+                "type": "object"
+            },
+            "LoginRequest2": {
                 "required": [
                     "username",
                     "password"
-                ]
-            }
-        },
-        "responses": {
-            "LoginStatusResponse": {
-                "description": "Returns login status and (if logged in) basic user info",
-                "content": {
-                    "application/json": {
-                        "schema": {
-                            "$ref": "#/components/schemas/LoggedInContent"
-                        }
+                ],
+                "properties": {
+                    "username": {
+                        "type": "string"
+                    },
+                    "password": {
+                        "type": "string"
                     }
-                }
+                },
+                "type": "object"
             }
         }
-    }
+    },
+    "tags": [
+        {
+            "name": "Login"
+        }
+    ]
 }

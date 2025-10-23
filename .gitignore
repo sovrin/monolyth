@@ -6,3 +6,6 @@ temp
 
 composer.lock
 package-lock.json
+backend/var/
+.DS_Store
+.phpunit.result.cache

@@ -3,18 +3,15 @@
   "type": "project",
   "require": {
     "php": "^8.4",
-    "nc/auth": "*",
-    "nc/utils": "*",
-    "nc/common": "*",
     "zircote/swagger-php": "^5.5"
   },
   "scripts": {
-    "app": "php -S 0.0.0.0:8000 -t www",
-    "spec": "php ./scripts/specGenerator.php"
+    "app": "php -S 0.0.0.0:8000 -t public",
+    "spec": "php bin/console nelmio:apidoc:dump --format=json > apps/core/openapi.json"
   },
   "autoload": {
     "psr-4": {
-      "Nc\\CoreApp\\": "src/"
+      "Thomann\\Core\\": "src/"
     }
   },
   "repositories": [

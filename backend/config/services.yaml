@@ -1,0 +1,12 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  Thomann\Core\:
+    resource: '%kernel.project_dir%/apps/core/src/'
+    exclude:
+      - '%kernel.project_dir%/apps/core/src/Kernel.php'
+
+  nelmio_api_doc.controller.swagger_ui: '@nelmio_api_doc.controller.swagger'

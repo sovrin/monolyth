@@ -1,0 +1,3 @@
+controllers_core:
+  resource: ../../apps/core/src/
+  type: attribute

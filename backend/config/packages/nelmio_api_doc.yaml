@@ -1,0 +1,13 @@
+nelmio_api_doc:
+  documentation:
+    info:
+      title: ThomannCore API
+      description: API for the Core module
+      version: '1.0.0'
+
+  areas:
+    default:
+      path_patterns:
+        - ^/api(?!/doc)
+
+  use_validation_groups: true

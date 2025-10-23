@@ -1,0 +1,14 @@
+#!/usr/bin/env php
+<?php
+
+use Symfony\Bundle\FrameworkBundle\Console\Application;
+use Thomann\Core\Kernel;
+
+require dirname(__DIR__) . '/vendor/autoload.php';
+
+$env = $_SERVER['APP_ENV'] ?? 'dev';
+$debug = (bool) ($_SERVER['APP_DEBUG'] ?? true);
+
+$kernel = new Kernel($env, $debug);
+$application = new Application($kernel);
+$application->run();

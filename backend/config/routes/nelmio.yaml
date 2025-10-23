@@ -1,0 +1,26 @@
+# UI (HTML) — Redocly
+nelmio_api_doc_ui:
+  path: /api/doc
+  controller: 'nelmio_api_doc.controller.redocly'
+  defaults:
+    area: default
+
+# Trailing slash variant (php -S sometimes normalizes to /)
+nelmio_api_doc_ui_slash:
+  path: /api/doc/
+  controller: 'nelmio_api_doc.controller.redocly'
+  defaults:
+    area: default
+
+# Raw spec endpoints
+nelmio_api_doc_json:
+  path: /api/doc.json
+  controller: 'nelmio_api_doc.controller.swagger_json'
+  defaults:
+    area: default
+
+nelmio_api_doc_yaml:
+  path: /api/doc.yaml
+  controller: 'nelmio_api_doc.controller.swagger_yaml'
+  defaults:
+    area: default

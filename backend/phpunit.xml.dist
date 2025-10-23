@@ -1,0 +1,12 @@
+<phpunit bootstrap="vendor/autoload.php" colors="true">
+    <testsuites>
+        <testsuite name="App">
+            <directory>apps/core/tests</directory>
+        </testsuite>
+    </testsuites>
+    <php>
+        <env name="KERNEL_CLASS" value="Thomann\Core\Kernel"/>
+        <server name="APP_ENV" value="test"/>
+        <server name="APP_DEBUG" value="1"/>
+    </php>
+</phpunit>

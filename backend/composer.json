@@ -14,15 +14,9 @@
   },
   "autoload": {
     "psr-4": {
-      "Sovrin\\Backend\\": "src/"
+      "Thomann\\Core\\": "apps/core/src/"
     }
   },
-  "authors": [
-    {
-      "name": "Oleg Kamlowski",
-      "email": "oleg@kamlowski.com"
-    }
-  ],
   "repositories": [
     {
       "type": "path",
@@ -34,13 +28,29 @@
   ],
   "require-dev": {
     "phpstan/phpstan": "^2.1",
-    "symplify/monorepo-builder": "^12"
+    "phpunit/phpunit": "^12.4",
+    "symfony/test-pack": "^1.2"
   },
   "config": {
     "preferred-install": {
       "*": "source"
+    },
+    "allow-plugins": {
+      "symfony/runtime": true
     }
   },
   "minimum-stability": "dev",
-  "prefer-stable": true
+  "prefer-stable": true,
+  "require": {
+    "nelmio/api-doc-bundle": "^5.6",
+    "symfony/validator": "^7.3",
+    "symfony/serializer": "^7.3",
+    "symfony/framework-bundle": "^7.3",
+    "symfony/console": "^7.3",
+    "symfony/runtime": "^7.3",
+    "symfony/yaml": "^7.3",
+    "symfony/property-access": "^7.3",
+    "symfony/property-info": "^7.3",
+    "symfony/twig-bundle": "^7.3"
+  }
 }
